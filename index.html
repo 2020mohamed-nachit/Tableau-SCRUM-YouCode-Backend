@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="utf-8" />
+	<title>YouCode | Scrum Board</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="assets/css/default/app.min.css" rel="stylesheet" />
+	<link href="assets/css/style.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+</head>
+<body>
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app-without-sidebar">
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content main-style">
+			<div class="d-flex justify-content-between">
+				<div>
+					<ol class="d-flex list-inline breadcrumb">
+						<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+						<li class="breadcrumb-item active">Scrum Board </li>
+					</ol>
+					<!-- BEGIN page-header -->
+					<h1 class="page-header">
+						Scrum Board 
+					</h1>
+					<!-- END page-header -->
+				</div>
+				
+				<div class="">
+					<button class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add Task</a><i class="bx bx-plus"></i>
+				</div>
+			</div>
+			
+			<div class="row justify-content-around">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="">
+						<div class="border border-5 text-warning bg-dark pb-4 d-flex justify-content-around">
+							<h4 class="ms-10px mb-0 d-flex pt-20px pb-0 ps-50px fs-1">to do(<span id="to-do-tasks-count"></span>)</h4>
+							<div class="pt-20px fs-1">
+								
+							</div>
+						</div>
+						<div class="border border-5" id="to-do-tasks">
+							<!-- IN PROGRESS TASKS HERE -->
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="">
+						<div class="border border-5 text-warning bg-dark pb-4 d-flex justify-content-around">
+							<h4 class="ms-10px mb-0 d-flex pt-20px pb-0 ps-50px fs-1">In Progress (<span id="in-progress-tasks-count"></span>)</h4>
+							<div class="pt-20px fs-1">
+								
+							</div>
+						</div>
+						<div class="border border-5" id="in-progress-tasks">
+							<!-- IN PROGRESS TASKS HERE -->
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="">
+						<div class="border border-5 text-warning bg-dark pb-4 d-flex justify-content-around">
+							<h4 class="ms-10px mb-0 d-flex pt-20px pb-0 ps-50px fs-1">Done (<span id="done-tasks-count">4</span>)</h4>
+							<div class="pt-20px fs-1">
+								
+							</div>
+						</div>
+						<div class="border border-5" id="done-tasks">
+							<!-- IN PROGRESS TASKS HERE -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END #content -->
+		
+		
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+	
+	<!-- TASK MODAL -->
+	
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Add task</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form >
+						<div class="mb-3">
+							<label class="form-label" >Title</label>
+							<input type="text" class="title form-control" id="title">
+						</div>
+
+						<div>
+							<label class="form-label">Type</label>
+						</div>
+
+						<div class="p-2">
+							<input class="form-check-input" type="radio" name="type" id="feature"  value="feature">
+							<label for="feature">Feature</label>
+						</div>
+
+						<div class="p-2">
+							<input class="form-check-input" type="radio" name="type" id="Bug"  value="Bug">
+							<label for="Bug">Bug</label>
+						</div>
+
+						<div class="mb-2">
+							<label class="form-label" for="status">Status</label>
+							<select name="status" id="status" class="form-select">
+							<option value="Please Select">Please select</option>
+							<option value="To Do">To do</option>
+							<option value="In Progress">In progress</option>
+							<option value="Done">Done</option>
+							</select>
+						</div>
+
+						<div class="mb-2">
+							<label class="form-label" for="priority">Priority</label>
+							<select name="priority" id="priority" class="form-select">
+							<option value="">Please select</option>
+							<option value="High">High</option>
+							<option value="Medium">Medium</option>
+							<option value="Low">Low</option>
+							</select>
+						</div>
+
+						<div class="mb-2">
+							<label for="date" class="form-label">Date</label>
+							<input type="date" id="date" value="date" class="form-control" >
+						</div>
+
+						<div>
+							<label for="description" class="form-label">Description</label>
+							<textarea class="form-control" name="description" id="description" cols="30" rows="5"></textarea>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary col-2" type="button" data-bs-dismiss="modal">Cancel</button>
+							<button class="add btn btn-primary  col-2" type="button" onclick="saveTask()" >saveTask</button>
+						</div>
+					</form>
+				</div>
+		  	</div>
+		</div>
+	</div>
+
+	<!-- edit -->
+	
+	<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Edit task</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form >
+						<div class="mb-3">
+							<label class="form-label" >Title</label>
+							<input type="text" class="title form-control" id="title5">
+						</div>
+
+						<div>
+							<label class="form-label">Type</label>
+						</div>
+
+						<div class="p-2">
+							<input class="form-check-input" type="radio" name="type1" id="feature1"  value="feature">
+							<label for="feature">Feature</label>
+						</div>
+
+						<div class="p-2">
+							<input class="form-check-input" type="radio" name="type1" id="Bug1"  value="Bug">
+							<label for="Bug">Bug</label>
+						</div>
+
+						<div class="mb-2">
+							<label class="form-label" for="status">Status</label>
+							<select name="status" id="status5" class="form-select">
+							<option value="Please Select">Please select</option>
+							<option value="To Do">To do</option>
+							<option value="In Progress">In progress</option>
+							<option value="Done">Done</option>
+							</select>
+						</div>
+
+						<div class="mb-2">
+							<label class="form-label" for="priority">Priority</label>
+							<select name="priority" id="priority5" class="form-select">
+							<option value="">Please select</option>
+							<option value="High">High</option>
+							<option value="Medium">Medium</option>
+							<option value="Low">Low</option>
+							</select>
+						</div>
+
+						<div class="mb-2">
+							<label for="date" class="form-label">Date</label>
+							<input type="date" id="date5" value="date" class="form-control" >
+						</div>
+
+						<div>
+							<label for="description" class="form-label">Description</label>
+							<textarea class="form-control" name="description" id="description5" cols="30" rows="5"></textarea>
+						</div>
+						<div class="modal-footer" id="edityo">
+							
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer" id="modal-footer1"></div>
+		  	</div>
+		</div>
+	</div>
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="assets/js/vendor.min.js"></script>
+	<script src="assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	<script src="assets/js/data.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
